@@ -30,7 +30,6 @@ Key business questions answered:
 
 The report uses a **galaxy schema**: two fact tables share conformed dimensions. This structure keeps sales and returns as separate business processes while allowing consistent filtering by date, product, customer, store, and region.
 
-##Modeling View
 ![Modeling View](screenshots/Modeling.PNG)
 
 ### Fact Tables
@@ -86,11 +85,14 @@ The executive summary page tracks Total Revenue, Profit, Margin %, and Return Ra
 
 **Slicers:** Year, Customer Occupation, and Product Brand.
 
+![OverView](screenshots/OverView.PNG)
 ### 3. Products
 
 This page evaluates profitability and return performance by product and brand. It includes Total Revenue, Profit, Margin %, Return Rate %, a product-category distribution visual, Top 10 Product Brands by Total Revenue, a Product Analysis decomposition tree, and a Top 10 Returned Products funnel.
 
 **Slicers:** Month, Year, and Sales Region.
+
+![Products](screenshots/Products.PNG)
 
 ### 4. Customers
 
@@ -98,11 +100,15 @@ This page analyzes high-value customers and customer segments. It includes Total
 
 **Slicers:** Month, Year, and Sales Region.
 
+![Customers](Customers.PNG)
+
 ### 5. Returns
 
 This page investigates the size, trend, and location of returns. It includes Total Revenue, Profit, Margin %, Return Rate %, Return Rate % by Month, Top 10 Product Brands Returned, a returns waterfall chart, and a geographic map for return hotspots.
 
 **Slicers:** Month, Year, and Customer Gender.
+
+![Returns](Returns.PNG)
 
 ## How to Use the Report
 
@@ -113,40 +119,9 @@ This page investigates the size, trend, and location of returns. It includes Tot
 5. Hover over visuals to view detailed tooltips.
 6. Use the eraser icon in a slicer to clear its selection and restore the default view.
 
-## Analysis Workflow
-
-1. Use Overview to monitor revenue, profit, margin, and return-rate movement.
-2. Use the map to identify high-performing and weak regions.
-3. Use Products to find revenue-driving brands and high-return products.
-4. Use Customers to identify valuable customer segments.
-5. Use Returns to investigate hotspots by location, brand, and time.
-
 ## Tools
 
 - Power BI Desktop
 - Power Query
 - DAX
 - CSV data sources
-
-## Optional Repository Structure
-
-```text
-Maven-Market-PowerBI/
-├── README.md
-├── Market Project.pbix
-├── data/
-│   ├── MavenMarket_Calendar.csv
-│   ├── MavenMarket_Customers.csv
-│   ├── MavenMarket_Products.csv
-│   ├── MavenMarket_Regions.csv
-│   ├── MavenMarket_Stores.csv
-│   └── MavenMarket_Returns_1997-1998.csv
-└── screenshots/
-    ├── home-page.png
-    ├── overview.png
-    ├── products.png
-    ├── customers.png
-    └── returns.png
-```
-
-Add exported report-page screenshots in `screenshots/` when publishing the repository.
