@@ -70,7 +70,7 @@ The report uses a **galaxy schema**: two fact tables share conformed dimensions.
 
 The landing page provides navigation to the core analytical pages: Overview, Products, Customers, and Returns.
 
-![Home Page](screenshots/Home_Page.PNG)
+![Home Page](screenshots/HomePage.PNG)
 
 ### 2. Overview
 
@@ -100,7 +100,7 @@ This page analyzes high-value customers and customer segments. It includes Total
 
 **Slicers:** Month, Year, and Sales Region.
 
-![Customers](Customers.PNG)
+![Customers](screenshots/Customers.PNG)
 
 ### 5. Returns
 
@@ -108,7 +108,7 @@ This page investigates the size, trend, and location of returns. It includes Tot
 
 **Slicers:** Month, Year, and Customer Gender.
 
-![Returns](Returns.PNG)
+![Returns](screenshots/Returns.PNG)
 
 ## How to Use the Report
 
