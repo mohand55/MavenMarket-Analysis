@@ -1,1 +1,200 @@
+# Maven Market Power BI Dashboard
+
+An interactive Power BI dashboard for monitoring retail sales, profitability, customer behavior, and product returns across Maven Market locations in Canada, Mexico, and the United States.
+
+## Project Overview
+
+Maven Market is a multi-national grocery retailer. This project turns its transactional data into a decision-ready report that helps business users answer four practical questions:
+
+- How are revenue, profit, margin, and returns changing over time?
+- Which regions, stores, products, and brands are performing best or need attention?
+- Which customer segments contribute the most revenue and profit?
+- Where are return-rate hotspots, and how large is the operational impact?
+
+The report is built in Power BI using a galaxy schema (two fact tables supported by shared dimensions). It is designed for interactive exploration through slicers, cross-filtering, drill-down, and tooltips.
+
+## Files
+
+| File | Description |
+| --- | --- |
+| `Market Project.pbix` | Power BI report containing the data model, DAX measures, visuals, and report pages. |
+| `MavenMarket_Calendar.csv` | Calendar dimension source. |
+| `MavenMarket_Customers.csv` | Customer dimension source. |
+| `MavenMarket_Products.csv` | Product dimension source. |
+| `MavenMarket_Regions.csv` | Region dimension source. |
+| `MavenMarket_Stores.csv` | Store dimension source. |
+| `MavenMarket_Returns_1997-1998.csv` | Returns fact source. |
+| `Transactions/` | Sales transaction source files. |
+
+## Data Model
+
+The model uses a **galaxy schema**. This approach is appropriate because sales and returns are separate business processes, while both need to be analyzed using the same descriptive dimensions.
+ ##Modeling_Overview
+![Modeling Overview](screenshots/Modeling.PNG)
+
+### Fact Tables
+
+| Table | Grain | Purpose |
+| --- | --- | --- |
+| `FactTransactions` | Transaction line | Stores sales activity, quantities, revenue, and cost inputs. |
+| `FactReturns` | Returned transaction or product record | Stores returned items used to calculate return volume and return rate. |
+
+### Dimensions
+
+| Dimension | Why it is used |
+| --- | --- |
+| `DimCalendar` | Enables year, month, quarter, and time-trend analysis. |
+| `DimProducts` | Enables analysis by product, brand, category, and product attributes. |
+| `DimCustomers` | Enables customer, gender, marital status, occupation, income, and membership analysis. |
+| `DimStores` | Provides store-level context for operational performance. |
+| `DimRegions` | Enables rollups by region and geography. |
+
+Dimensions are connected with one-to-many relationships to the fact tables. Stores are also related to Regions, allowing analysis to move naturally from country or region to store level.
+
+## Core KPIs
+
+| KPI | Business meaning | Typical calculation |
+| --- | --- | --- |
+| Total Revenue | Total sales value | Sum of sales revenue. |
+| Total Cost | Cost associated with sold items | Sum of sales cost. |
+| Profit | Net contribution before other expenses | `Total Revenue - Total Cost` |
+| Margin % | Profitability relative to revenue | `DIVIDE(Profit, Total Revenue)` |
+| Transactions Count | Number of sales transactions | Count of transaction records. |
+| Quantity Sold | Number of units sold | Sum of sold quantity. |
+| Quantity Returned | Number of units returned | Sum or count of returned items. |
+| Return Rate % | Returned volume relative to sold volume | `DIVIDE(Quantity Returned, Quantity Sold)` |
+
+> Use **Return Rate %** to compare performance fairly across regions or brands. Use **Quantity Returned** alongside it to understand the absolute operational workload.
+
+## Report Pages
+
+### 1. Home Page
+
+The landing page provides navigation to the main analytical pages. It is the entry point for report users and supports a clean, guided dashboard experience.
+
+### 2. Overview
+
+The Overview page is the executive summary of the business.
+
+**KPIs displayed**
+
+- Total Revenue
+- Profit
+- Margin %
+- Return Rate %
+
+**Visuals and purpose**
+
+| Visual | Question answered |
+| --- | --- |
+| Profit by Month line chart | Is profit improving, declining, or seasonal? |
+| Total Revenue by Region map | Which geographic areas generate the most revenue? |
+| Top 5 Products Sold bar chart | Which products lead sales volume? |
+| Active Customer Growth % trend | Is the active customer base expanding or contracting? |
+
+![Over View](screenshots/OverView.png)
+
+**Page slicers**
+
+- Year
+- Customer Occupation
+- Top 10 Product Brand selection
+
+### 3. Products
+
+The Products page helps users understand product and brand performance and identify return-risk items.
+
+**KPIs displayed**
+
+- Total Revenue
+- Profit
+- Margin %
+- Return Rate %
+
+**Visuals and purpose**
+
+| Visual | Question answered |
+| --- | --- |
+| Product-category distribution chart | Which product groups contribute most to the selected metric? |
+| Top 10 Product Brands by Total Revenue | Which brands drive sales value? |
+| Product Analysis decomposition tree | Which product attributes explain performance? |
+| Top 10 Returned Products funnel | Which items generate the highest return volume? |
+
+
+**Page slicers**
+
+- Month
+- Year
+- Sales Region
+
+### 4. Customers
+
+The Customers page analyzes revenue and profitability through customer demographics and segments.
+
+**KPIs displayed**
+
+- Total Revenue
+- Profit
+- Margin %
+- Return Rate %
+
+**Visuals and purpose**
+
+| Visual | Question answered |
+| --- | --- |
+| Profit by Gender donut chart | Which gender segment contributes more profit? |
+| Total Quantity by Customer Yearly Income table | How does purchase quantity vary by income level? |
+| Top 5 Products Sold by Marital Status treemap | Which products are preferred by each marital-status segment? |
+| Top 10 Customers by Total Revenue bar chart | Who are the highest-value customers by revenue? |
+| Profit by Member Card column chart | Does membership type relate to profitability? |
+
+**Page slicers**
+
+- Month
+- Year
+- Sales Region
+
+### 5. Returns
+
+The Returns page focuses on the scale, trend, and location of product returns.
+
+**KPIs displayed**
+
+- Total Revenue
+- Profit
+- Margin %
+- Return Rate %
+
+**Visuals and purpose**
+
+| Visual | Question answered |
+| --- | --- |
+| Return Rate % by Month line chart | Is the return rate rising, falling, or seasonal? |
+| Top 10 Product Brands Returned column chart | Which brands produce the most returned items? |
+| Returns waterfall chart | Which contributors explain the change in returns? |
+| Geographic map | Where are return hotspots by location? |
+
+**Page slicers**
+
+- Month
+- Year
+- Customer Gender
+
+## How to Use the Report
+
+1. Open `Market Project.pbix` in Power BI Desktop.
+2. Start from the **Home Page** and select a report area.
+3. Use the slicers to narrow the time period, customer segment, product selection, or region.
+4. Select bars, map bubbles, or segments to cross-filter related visuals on the same page.
+5. Hover over a visual for detailed tooltip values.
+6. Clear a slicer using its eraser icon to return to the full default view.
+
+
+
+## Tools
+
+- Power BI Desktop
+- Power Query for data preparation
+- DAX for measures and KPIs
+- CSV source files for dimensions, transactions, and returns
 
