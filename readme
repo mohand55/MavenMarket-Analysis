@@ -28,9 +28,11 @@ The report is built in Power BI using a galaxy schema (two fact tables supported
 
 ## Data Model
 
+
 The model uses a **galaxy schema**. This approach is appropriate because sales and returns are separate business processes, while both need to be analyzed using the same descriptive dimensions.
- ##Modeling_Overview
-![Modeling Overview](screenshots/Modeling.PNG)
+
+## Modeling_Overview
+![Modeling Overview](Modeling.PNG)
 
 ### Fact Tables
 
@@ -92,7 +94,6 @@ The Overview page is the executive summary of the business.
 | Top 5 Products Sold bar chart | Which products lead sales volume? |
 | Active Customer Growth % trend | Is the active customer base expanding or contracting? |
 
-![Over View](screenshots/OverView.png)
 
 **Page slicers**
 
