@@ -31,7 +31,7 @@ Key business questions answered:
 The report uses a **galaxy schema**: two fact tables share conformed dimensions. This structure keeps sales and returns as separate business processes while allowing consistent filtering by date, product, customer, store, and region.
 
 ##Modeling View
-![Modeling View](screenshots/Modeling.png)
+![Modeling View](screenshots/Modeling.PNG)
 
 ### Fact Tables
 
@@ -71,7 +71,7 @@ The report uses a **galaxy schema**: two fact tables share conformed dimensions.
 
 The landing page provides navigation to the core analytical pages: Overview, Products, Customers, and Returns.
 
-![Home Page](screenshots/Home_Page.png)
+![Home Page](screenshots/Home_Page.PNG)
 
 ### 2. Overview
 
