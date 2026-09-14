@@ -30,17 +30,8 @@ Key business questions answered:
 
 The report uses a **galaxy schema**: two fact tables share conformed dimensions. This structure keeps sales and returns as separate business processes while allowing consistent filtering by date, product, customer, store, and region.
 
-```text
-                     DimCalendar
-                         |
-DimCustomers --- FactTransactions --- DimProducts
-                         |
-                      DimStores --- DimRegions
-
-DimCalendar -------- FactReturns ------- DimProducts
-                         |
-                      DimStores --- DimRegions
-```
+##Modeling View
+![Modeling View](screenshots/Modeling.png)
 
 ### Fact Tables
 
@@ -79,6 +70,8 @@ DimCalendar -------- FactReturns ------- DimProducts
 ### 1. Home Page
 
 The landing page provides navigation to the core analytical pages: Overview, Products, Customers, and Returns.
+
+![Home Page](screenshots/Home_Page.png)
 
 ### 2. Overview
 
